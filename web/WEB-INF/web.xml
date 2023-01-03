@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         id="WebApp_ID" version="3.1">
+    <display-name>JRPC Demo</display-name>
+    <welcome-file-list>  
+        <welcome-file>index.html</welcome-file>  
+    </welcome-file-list>
+    <filter>
+        <filter-name>jsidFilter</filter-name>
+        <filter-class>bigbott.jsid.JsidFilter</filter-class>
+        <init-param>
+            <param-name>authStrategy</param-name>
+            <param-value>none</param-value>
+        </init-param>
+        <init-param>
+            <param-name>include/param-name>
+            <param-value>EchoWords</param-value>
+        </init-param>
+        <init-param>
+            <param-name>accessTokenMaxAge</param-name>
+            <param-value>60</param-value>
+        </init-param>
+        <init-param>
+            <param-name>refreshTokenMaxAge</param-name>
+            <param-value>120</param-value>
+        </init-param>
+        <init-param>
+            <param-name>userManagerClass</param-name>
+            <param-value>bigbott.demo.InMemoryUserManager</param-value>
+        </init-param>
+        <init-param>
+            <param-name>mailClientClass</param-name>
+            <param-value>bigbott.demo.GoogleMailClient</param-value>
+        </init-param>
+        <init-param>
+            <param-name>tokenGeneratorClass</param-name>
+            <param-value>bigbott.demo.TokenGenerator</param-value>
+        </init-param>
+    </filter>  
+    <filter-mapping>
+        <filter-name>jsidFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>jrpcServlet</servlet-name>
+        <servlet-class>me.jrpc.JrpcServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>jrpcServlet</servlet-name>
+        <url-pattern>/demo/*</url-pattern>
+    </servlet-mapping>
+</web-app>

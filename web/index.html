@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>JRPC Demo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/main.css" rel="stylesheet" type="text/css">
+        <link href="css/jquery.highlight.css" rel="stylesheet" type="text/css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="page"><br>
+            <h1> JSId Demo </h1>
+            <p>
+                JSId is an authentication framework for web apps with Java back-end. 
+                <a href="https://github.com/bigbott/jsid/wiki/JSId">Read more</a>
+            </p>
+            <a id="loginLink" href="#">Login</a>
+            <a id="logoutLink" href="#" style="display: none;">Logout</a>
+            <div id="userImageDiv">
+                <img src="images/icon_user_whiteongrey.svg" width="30" alt="user picture">
+            </div>    
+            <h2>Examples:</h2>
+            <p>Examples below were taken from JRPC demo. In both examples we send AJAX call to the server. 
+               But the first example URL is login free, and the second requires login. 
+            </p>
+            <div id="nav">
+                <a href="#numbers">
+                    <label>Send and receive numbers (Login free)</label>
+                </a><br>
+                <a href="#strings">
+                    <label>Send and receive strings (Login required)</label>
+                </a><br>
+
+            </div>
+            <div id="numbers">
+                <h2>Send and receive numbers</h2>
+                <input type="text" id="firstNumber" class="numberInput" />
+                <span> + </span> 
+                <input type="text" id="secondNumber" class="numberInput" />
+                <span> = </span> 
+                <input type="text" id="result" class="numberInput" />
+                <button type="button" id="calculate">Calculate</button><br>
+
+
+            </div><br><br><br>
+            <div id="strings">
+                <h2>Send and receive strings</h2>
+                <p>In this example we will submit any three words to the server, then get them back and display.</p>
+                <input type="text" id="firstWord" class="textInput" value="Hello"/>
+                <span> &nbsp;&nbsp;</span> 
+                <input type="text" id="secondWord" class="textInput" value="world" />
+                <span> &nbsp;&nbsp; </span> 
+                <input type="text" id="thirdWord" class="textInput"  value="!!"/>
+                <button type="button" id="submit">Submit</button><br>
+                <h3 id="sentence"></h3>
+
+
+            </div><br><br><br>
+            
+            <p>You can read more about JSId <a href="https://github.com/bigbott/jsid/wiki/JSId">here</a>. 
+                Take code from <a href="https://github.com/bigbott/jsid">here</a>. Happy coding!</p>
+
+            <br><br><br><br><br><br>
+
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+        <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+        <script src="js/vendor/jquery.highlight.js"></script>
+        <script src="js/jsid/jquery.jsid.js"></script>
+        <script src="js/main/main.js"></script>
+        <script src="js/main/mainCtrl.js"></script>
+        <script src="js/main/mainView.js"></script>
+        <script src="js/main/mainModel.js"></script>
+        <script src="js/jsid/jsid.js"></script>
+        <script src="js/jsid/jsid.ajax.js"></script>
+        <script src="js/jsid/jsid.css.js"></script>
+        <script src="js/jsid/jsid.ctrl.js"></script>
+        <script src="js/jsid/jsid.html.js"></script>
+        <script src="js/jsid/jsid.model.js"></script>
+        <script src="js/jsid/jsid.view.js"></script>
+        <script src="js/jsid/jsid.fblogin.js"></script>
+        <script src="js/jsid/jsid.googlelogin.js"></script>
+        <script src="js/jsid/jsid.util.js"></script>
+        <script>
+            'use strict';
+            $(function () {
+                main.init();
+                let actionParam = jsid.util.getQueryVariable('action');
+                $().jsid(actionParam);
+
+
+            });
+        </script>
+    </body>
+</html>
