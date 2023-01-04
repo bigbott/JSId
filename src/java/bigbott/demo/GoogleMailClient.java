@@ -25,8 +25,8 @@ public class GoogleMailClient implements IMailClient {
 //    private GoogleMailClient() {
 //    }
 
-    String from = "phoneparator@gmail.com";
-    String password = "zlxkwzbevnwoxaig"; //Application specific password generate 
+    String from = "";  // email address used to send emails
+    String password = ""; //Application specific password  
 
     boolean isTest = true;   // change to false for production
     String host = isTest ? "http://localhost:8080/" : "https://phoneparator.com/";
