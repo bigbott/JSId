@@ -88,6 +88,6 @@ public class GoogleMailClient implements IMailClient {
     }
 
     public static void main(String[] args) throws Exception {
-        new GoogleMailClient().sendEmail("u.novicow@gmail.com", "googleEmailClient test", "hello");
+        new GoogleMailClient().sendEmail("_____@gmail.com", "googleEmailClient test", "hello");
     }
 }
